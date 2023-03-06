@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  position: fixed;
-  height: 45%;
-  width: 25%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: ${(props) => props.theme.colors.main};
   border-radius: 25px;
+  max-width: 500px;
+  height: 500px;
+  width: 70%;
 `;
 export default StyledContainer;
