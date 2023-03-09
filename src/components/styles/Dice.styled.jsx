@@ -9,6 +9,7 @@ const StyledDice = styled.div`
   box-shadow: 0px 2px 2px ${(props) => props.theme.colors.shadow};
   font-weight: 900;
   font-size: 2rem;
+  cursor: pointer;
 `;
 
 export default StyledDice;
