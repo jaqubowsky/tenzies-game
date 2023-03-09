@@ -1,12 +1,10 @@
 import StyledMain from "./styles/Main.styled";
 import Container from "./Container";
 
-const Main = () => {
+const Main = ({ children }) => {
   return (
     <StyledMain>
-      <Container>
-        
-      </Container>
+      <Container>{children}</Container>
     </StyledMain>
   );
 };
