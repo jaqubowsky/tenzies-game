@@ -8,7 +8,7 @@ const StyledDice = styled.div`
   align-items: center;
   box-shadow: 0px 2px 2px ${(props) => props.theme.colors.shadow};
   font-weight: 900;
-  font-size: 1.8rem;
+  font-size: 2rem;
 `;
 
 export default StyledDice;
