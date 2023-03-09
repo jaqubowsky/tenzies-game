@@ -7,6 +7,7 @@ const theme = {
     button: "#5035FF",
     dice: "#FFFFFF",
     clickedDice: "#59E391",
+    shadow: "rgba(0, 0, 0, 0.15)",
   },
 };
 
