@@ -10,6 +10,7 @@ const StyledDice = styled.div`
   font-weight: 900;
   font-size: 2rem;
   cursor: pointer;
+  background: ${(props) => props.background || ""};
 `;
 
 export default StyledDice;
