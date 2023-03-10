@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,8 @@ const StyledContainer = styled.div`
   background: ${(props) => props.theme.colors.main};
   border-radius: 25px;
   max-width: 500px;
-  height: 500px;
   width: 70%;
+  padding: 3rem 1rem;
+  gap: 1.2em;
 `;
-export default StyledContainer;
+export default Container;
