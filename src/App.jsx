@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import DiceContainer from "./components/styles/DiceContainer.styled";
 import Container from "./components/styles/Container.styled";
 import Description from "./components/styles/Description.styled";
+import Confetti from "react-confetti";
 import GlobalStyle from "./components/styles/Global";
 import { nanoid } from "nanoid";
 
@@ -22,9 +23,13 @@ function App() {
 
     if (winningCondition) {
       setTenzies(true);
-      console.log("You win!");
     }
   }, [diceArray]);
+
+  function newGame() {
+    setTenzies(false);
+    setDiceArray(getNewDiceArray());
+  }
 
   function rollDice() {
     setDiceArray((prevArray) =>
@@ -78,6 +83,7 @@ function App() {
       <GlobalStyle />
       <Theme>
         <Main>
+          {tenzies && <Confetti />}
           <Container>
             <h1>Tenzies</h1>
             <Description>
@@ -85,7 +91,10 @@ function App() {
               its current value between rolls.
             </Description>
             <DiceContainer>{diceElements}</DiceContainer>
-            <Button handleClick={rollDice} name={"Roll"}></Button>
+            <Button
+              handleClick={tenzies ? newGame : rollDice}
+              name={tenzies ? "New Game" : "Roll"}
+            ></Button>
           </Container>
         </Main>
       </Theme>
