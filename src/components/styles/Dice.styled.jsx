@@ -11,6 +11,7 @@ const StyledDice = styled.div`
   font-size: 2rem;
   cursor: pointer;
   background: ${(props) => props.background || ""};
+  border-radius: 10px;
 `;
 
 export default StyledDice;
