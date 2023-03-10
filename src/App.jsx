@@ -6,11 +6,22 @@ import Button from "./components/Button";
 import DiceContainer from "./components/diceContainer";
 import GlobalStyle from "./components/styles/Global";
 
+const NUM_OF_DICES = 10;
+
 function App() {
   const [diceArray, setDiceArray] = useState(getNewDiceArray());
 
   function getNewDiceArray() {
-    return Array.from({ length: 10 }, () => Math.floor(Math.random() * 6) + 1);
+    const newDice = [];
+
+    for (let i = 0; i < NUM_OF_DICES; i++) {
+      const randomNumber = Math.floor(Math.random() * 6) + 1;
+      const randomDiceObj = { value: randomNumber, isHeld: false };
+
+      newDice.push(randomDiceObj);
+    }
+
+    return newDice;
   }
 
   function getAllNewDice() {
@@ -18,7 +29,7 @@ function App() {
   }
 
   const diceElements = diceArray.map((dice) => (
-    <Dice key={Math.random()} value={dice} />
+    <Dice key={Math.random()} value={dice.value} />
   ));
 
   return (
