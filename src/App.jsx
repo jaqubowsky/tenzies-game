@@ -1,4 +1,4 @@
-import { useState } from "React";
+import { useState } from "react";
 import Theme from "./components/styles/Theme";
 import Main from "./components/Main";
 import Dice from "./components/Dice";
@@ -29,12 +29,25 @@ function App() {
     return newDice;
   }
 
+  function holdDice(id) {
+    setDiceArray((prevDice) =>
+      prevDice.map((dice) =>
+        dice.id === id ? { ...dice, isHeld: !dice.isHeld } : dice
+      )
+    );
+  }
+
   function getAllNewDice() {
     setDiceArray(getNewDiceArray());
   }
 
   const diceElements = diceArray.map((dice) => (
-    <Dice key={dice.id} value={dice.value} />
+    <Dice
+      key={dice.id}
+      value={dice.value}
+      background={dice.isHeld && ((props) => props.theme.colors.clickedDice)}
+      handleClick={() => holdDice(dice.id)}
+    />
   ));
 
   return (
