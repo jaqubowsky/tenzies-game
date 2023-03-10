@@ -26,17 +26,17 @@ function App() {
     }
   }, [diceArray]);
 
-  function newGame() {
-    setTenzies(false);
-    setDiceArray(getNewDiceArray());
-  }
-
   function rollDice() {
-    setDiceArray((prevArray) =>
-      prevArray.map((dice) => {
-        return dice.isHeld ? dice : { ...getNewDice() };
-      })
-    );
+    if (!tenzies) {
+      setDiceArray((prevArray) =>
+        prevArray.map((dice) => {
+          return dice.isHeld ? dice : { ...getNewDice() };
+        })
+      );
+    } else {
+      setTenzies(false);
+      setDiceArray(getNewDiceArray());
+    }
   }
 
   function getRandomNumber() {
@@ -92,7 +92,7 @@ function App() {
             </Description>
             <DiceContainer>{diceElements}</DiceContainer>
             <Button
-              handleClick={tenzies ? newGame : rollDice}
+              handleClick={rollDice}
               name={tenzies ? "New Game" : "Roll"}
             ></Button>
           </Container>
