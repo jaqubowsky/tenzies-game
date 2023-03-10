@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledMain = styled.main`
+const Main = styled.main`
   background: ${(props) => props.theme.colors.background};
   width: 100vw;
   height: 100vh;
@@ -9,4 +9,4 @@ const StyledMain = styled.main`
   align-items: center;
 `;
 
-export default StyledMain
+export default Main;

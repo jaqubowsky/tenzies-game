@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledDiceContainer = styled.div`
+const DiceContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -8,4 +8,4 @@ const StyledDiceContainer = styled.div`
   width: 90%;
 `;
 
-export default StyledDiceContainer;
+export default DiceContainer;
