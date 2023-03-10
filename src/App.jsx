@@ -5,6 +5,7 @@ import Dice from "./components/Dice";
 import Button from "./components/Button";
 import DiceContainer from "./components/diceContainer";
 import GlobalStyle from "./components/styles/Global";
+import { nanoid } from "nanoid";
 
 const NUM_OF_DICES = 10;
 
@@ -15,8 +16,12 @@ function App() {
     const newDice = [];
 
     for (let i = 0; i < NUM_OF_DICES; i++) {
-      const randomNumber = Math.floor(Math.random() * 6) + 1;
-      const randomDiceObj = { value: randomNumber, isHeld: false };
+      const randomNumber = Math.ceil(Math.random() * 6) + 1;
+      const randomDiceObj = {
+        value: randomNumber,
+        isHeld: false,
+        id: nanoid(),
+      };
 
       newDice.push(randomDiceObj);
     }
@@ -29,7 +34,7 @@ function App() {
   }
 
   const diceElements = diceArray.map((dice) => (
-    <Dice key={Math.random()} value={dice.value} />
+    <Dice key={dice.id} value={dice.value} />
   ));
 
   return (
