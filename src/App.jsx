@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Theme from "./components/styles/Theme";
 import Main from "./components/styles/Main.styled";
 import Dice from "./components/Dice";
@@ -13,6 +13,18 @@ const NUM_OF_DICES = 10;
 
 function App() {
   const [diceArray, setDiceArray] = useState(getNewDiceArray());
+  const [tenzies, setTenzies] = useState(false);
+
+  useEffect(() => {
+    const winningCondition = diceArray.every((dice) => {
+      return dice.isHeld && dice.value === diceArray[0].value;
+    });
+
+    if (winningCondition) {
+      setTenzies(true);
+      console.log("You win!");
+    }
+  }, [diceArray]);
 
   function rollDice() {
     setDiceArray((prevArray) =>
